@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
     std::string imagePath = "../../images/bus.jpg";
     std::string savePath = "../../images/bus_cpp_result.jpg";
     std::string labelPath = "../labels.txt";
-    std::string mdoelPath = "../../weights/rtdetr_r50vd_6x_coco_cvhub.onnx";
+    std::wstring modelPath = L"../../weights/rtdetr_r50vd_6x_coco_cvhub.onnx";
     std::string instanceName = "rtdetr-onnxruntime-inference";
     size_t deviceId = 0;
     size_t batchSize = 1;
@@ -192,7 +192,7 @@ int main(int argc, char* argv[])
     );
 
     // Create session
-    Ort::Session ortSession(env, mdoelPath.c_str(), sessionOptions);
+    Ort::Session ortSession(env, modelPath.c_str(), sessionOptions);
 
     // 创建一个以默认选项为基础的分配器对象，以便为后续的操作提供内存分配功能
     Ort::AllocatorWithDefaultOptions allocator;
